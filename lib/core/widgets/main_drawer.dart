@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fyp/core/extensions/context_extensions.dart';
 import 'package:fyp/core/preferences.dart';
+import 'package:fyp/feature/Mysongs/views/Mysongs.dart';
 import 'package:fyp/feature/Notification/views/notification.dart';
 import 'package:fyp/feature/Profile/views/profile.dart';
 import 'package:fyp/feature/aboutus/view/aboutus.dart';
 import 'package:fyp/feature/feedback/views/feedback.dart';
-import 'package:fyp/feature/home/views/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../api/django_api.dart';
 import '../../feature/login/views/login.dart';
 import '../providers/current_user_provider.dart';
+import 'custom_alert_dialog.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class MainDrawer extends StatelessWidget {
         ListTile(
           contentPadding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
           title: const Text(
-            'Home',
+            'Song List',
             style: TextStyle(
               fontSize: 20,
             ),
@@ -39,8 +40,7 @@ class MainDrawer extends StatelessWidget {
             height: 30,
           ),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const HomePage()));
+            context.push((context) => const Mysongs());
           },
         ),
         ListTile(
@@ -100,7 +100,26 @@ class MainDrawer extends StatelessWidget {
         ListTile(
           contentPadding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
           title: const Text(
-            'About us',
+            'Request/Contact',
+            style: TextStyle(fontSize: 20),
+          ),
+          hoverColor: const Color.fromRGBO(194, 236, 255, 1),
+          leading: const Icon(
+            Icons.request_quote_outlined,
+            color: Colors.black,
+            size: 30,
+          ),
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (_) => const CustomAlertDialog(),
+            );
+          },
+        ),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+          title: const Text(
+            'About',
             style: TextStyle(fontSize: 20),
           ),
           hoverColor: const Color.fromRGBO(194, 236, 255, 1),

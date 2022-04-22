@@ -24,344 +24,19 @@ class Artist extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var scaffoldKey = GlobalKey<ScaffoldState>();
     final Map<String, dynamic> songs = ref
         .watch(songsRef)
         .maybeWhen(data: (d) => jsonDecode(d ?? '{}'), orElse: () => {});
-    return Scaffold(
-        key: scaffoldKey,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80),
-          child: AppBar(
-            leading: IconButton(
-                padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                icon: Image.asset(
-                  'images/menu.png',
-                  height: 20,
-                  color: Colors.black,
-                ),
-                onPressed: () {
-                  scaffoldKey.currentState?.openDrawer();
-                }),
-            backgroundColor: Colors.white,
-            actions: const <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 30, 80, 0),
-                child: Text("Lyrics and chords",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                    )),
-              ),
-            ],
-          ),
-        ),
-        drawer: const MainDrawer(),
-        body: SingleChildScrollView(
-            child: Column(children: [
-          Container(
-            padding: const EdgeInsets.only(top: 30),
-            child: Column(
-              children: [
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(vertical: 1.0),
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'images/exo.jpg',
-                                ),
-                              ),
-                            ),
-                          ))),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const EXO()),
-                    );
-                  },
-                  title: const Text(
-                    'EXO',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {},
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 1.0),
-                        alignment: Alignment.center,
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'images/metallica.webp',
-                              ),
-                            ),
-                          ),
-                        ),
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Metallica()),
-                    );
-                  },
-                  title: const Text(
-                    'Metallica',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(vertical: 1.0),
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'images/behemoth.jpeg',
-                                ),
-                              ),
-                            ),
-                          ))),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Behemoth()),
-                    );
-                  },
-                  title: const Text(
-                    'Behemoth',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Behemoth()),
-                        );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 1.0),
-                        alignment: Alignment.center,
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'images/bts.webp',
-                              ),
-                            ),
-                          ),
-                        ),
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Bts()),
-                    );
-                  },
-                  title: const Text(
-                    'BTS',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(vertical: 1.0),
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'images/evanensce.jpeg',
-                                ),
-                              ),
-                            ),
-                          ))),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Evanensce()),
-                    );
-                  },
-                  title: const Text(
-                    'Evanensce',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LOG()),
-                        );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 1.0),
-                        alignment: Alignment.center,
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'images/lambofgod.jpeg',
-                              ),
-                            ),
-                          ),
-                        ),
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LOG()),
-                    );
-                  },
-                  title: const Text(
-                    'Lamb Of God',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(vertical: 1.0),
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'images/linkinpark.jpeg',
-                                ),
-                              ),
-                            ),
-                          ))),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => linkinpark()),
-                    );
-                  },
-                  title: const Text(
-                    'Linkin Park',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Nepathya()),
-                        );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 1.0),
-                        alignment: Alignment.center,
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'images/Nepathya.jpeg',
-                              ),
-                            ),
-                          ),
-                        ),
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Nepathya()),
-                    );
-                  },
-                  title: const Text(
-                    'Nepathya',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: Container(
+    return SingleChildScrollView(
+        child: Column(children: [
+      Container(
+        padding: const EdgeInsets.only(top: 30),
+        child: Column(
+          children: [
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
                       width: 100,
                       height: 100,
                       padding: const EdgeInsets.symmetric(vertical: 1.0),
@@ -372,30 +47,31 @@ class Artist extends ConsumerWidget {
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                              'images/PANTERA.webp',
+                              'images/exo.jpg',
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Pantera()),
-                    );
-                  },
-                  title: const Text(
-                    'Pantera',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                ListTile(
-                  leading: Container(
+                      ))),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EXO()),
+                );
+              },
+              title: const Text(
+                'EXO',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {},
+                  child: Container(
                     width: 100,
                     height: 100,
                     padding: const EdgeInsets.symmetric(vertical: 1.0),
@@ -411,62 +87,356 @@ class Artist extends ConsumerWidget {
                         ),
                       ),
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Metallica()),
-                    );
-                  },
-                  title: const Text(
-                    'Metallica',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                const Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                ),
-                for (final entry in songs.entries)
-                  Column(
-                    children: [
-                      ListTile(
-                        leading: Container(
-                          width: 100,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(vertical: 1.0),
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'images/metallica.webp',
-                                ),
-                              ),
+                  )),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Metallica()),
+                );
+              },
+              title: const Text(
+                'Metallica',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
+                      width: 100,
+                      height: 100,
+                      padding: const EdgeInsets.symmetric(vertical: 1.0),
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'images/behemoth.jpeg',
                             ),
                           ),
                         ),
-                        onTap: () async {
-                          context.push(
-                            (context) => ArtistSong(songDetailsList: entry.value),
-                          );
-                        },
-                        title: Text(
-                          entry.key,
-                          style: const TextStyle(fontSize: 15),
+                      ))),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Behemoth()),
+                );
+              },
+              title: const Text(
+                'Behemoth',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Behemoth()),
+                    );
+                  },
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    padding: const EdgeInsets.symmetric(vertical: 1.0),
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'images/bts.webp',
+                          ),
                         ),
                       ),
-                      const Divider(
-                        thickness: 1,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-              ],
+                    ),
+                  )),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Bts()),
+                );
+              },
+              title: const Text(
+                'BTS',
+                style: TextStyle(fontSize: 15),
+              ),
             ),
-          )
-        ])));
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
+                      width: 100,
+                      height: 100,
+                      padding: const EdgeInsets.symmetric(vertical: 1.0),
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'images/evanensce.jpeg',
+                            ),
+                          ),
+                        ),
+                      ))),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Evanensce()),
+                );
+              },
+              title: const Text(
+                'Evanensce',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LOG()),
+                    );
+                  },
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    padding: const EdgeInsets.symmetric(vertical: 1.0),
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'images/lambofgod.jpeg',
+                          ),
+                        ),
+                      ),
+                    ),
+                  )),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LOG()),
+                );
+              },
+              title: const Text(
+                'Lamb Of God',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
+                      width: 100,
+                      height: 100,
+                      padding: const EdgeInsets.symmetric(vertical: 1.0),
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'images/linkinpark.jpeg',
+                            ),
+                          ),
+                        ),
+                      ))),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => linkinpark()),
+                );
+              },
+              title: const Text(
+                'Linkin Park',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Nepathya()),
+                    );
+                  },
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    padding: const EdgeInsets.symmetric(vertical: 1.0),
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'images/Nepathya.jpeg',
+                          ),
+                        ),
+                      ),
+                    ),
+                  )),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Nepathya()),
+                );
+              },
+              title: const Text(
+                'Nepathya',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  padding: const EdgeInsets.symmetric(vertical: 1.0),
+                  alignment: Alignment.center,
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'images/PANTERA.webp',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Pantera()),
+                );
+              },
+              title: const Text(
+                'Pantera',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            ListTile(
+              leading: Container(
+                width: 100,
+                height: 100,
+                padding: const EdgeInsets.symmetric(vertical: 1.0),
+                alignment: Alignment.center,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'images/metallica.webp',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Metallica()),
+                );
+              },
+              title: const Text(
+                'Metallica',
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            for (final entry in songs.entries)
+              Column(
+                children: [
+                  ListTile(
+                    leading: Container(
+                      width: 100,
+                      height: 100,
+                      padding: const EdgeInsets.symmetric(vertical: 1.0),
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'images/metallica.webp',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    onTap: () async {
+                      context.push(
+                        (context) => ArtistSong(songDetailsList: entry.value),
+                      );
+                    },
+                    title: Text(
+                      entry.key,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 1,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+          ],
+        ),
+      )
+    ]));
   }
 }

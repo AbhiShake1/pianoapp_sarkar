@@ -36,7 +36,7 @@ class SignupPage extends HookWidget {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('images/img3.jpeg'), fit: BoxFit.cover)),
+              image: AssetImage('images/piano.jfif'), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

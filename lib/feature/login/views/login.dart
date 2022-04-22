@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fyp/api/django_api.dart';
 import 'package:fyp/core/providers/current_user_provider.dart';
-import 'package:fyp/core/widgets/bottom_nav_bar/views/bottom_nav_bar.dart';
+import 'package:fyp/feature/Mysongs/views/Mysongs.dart';
 import 'package:fyp/feature/signup/views/signup_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -129,7 +129,7 @@ class LoginPage extends HookWidget {
                                       'last_name_key', userDetails.lastName ?? '');
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
-                                      builder: (_) => const BottomNavBar(),
+                                      builder: (_) => const Mysongs(),
                                     ),
                                   );
                                 } else {

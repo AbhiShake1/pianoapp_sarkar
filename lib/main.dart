@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/feature/home/views/home.dart';
+import 'package:fyp/feature/Mysongs/views/Mysongs.dart';
 import 'package:fyp/feature/login/views/login.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -25,6 +25,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: uid == null ? const LoginPage() : const HomePage());
+        home: uid == null ? const LoginPage() : const Mysongs());
   }
 }
