@@ -90,7 +90,7 @@ class LoginPage extends HookWidget {
                           ),
                         ),
                         onTap: () async => await launch(
-                            'https://pianoappbackendsarkar-production.up.railway.app//api=forgot_password/recover/'),
+                            'https://pianoappbackendsarkar-production.up.railway.app/api=forgot_password/recover/'),
                       ),
                     ],
                   ),

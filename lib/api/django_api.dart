@@ -11,7 +11,7 @@ class DjangoApi {
       {String? firstName, String? lastName}) async {
     final response = await post(
       Uri.parse(
-          'https://pianoappbackendsarkar-production.up.railway.app//api=create_user/'),
+          'https://pianoappbackendsarkar-production.up.railway.app/api=create_user/'),
       body: jsonEncode({
         "username": email,
         "email": email,
@@ -30,7 +30,7 @@ class DjangoApi {
       String email, String password) async {
     final response = await post(
       Uri.parse(
-          'https://pianoappbackendsarkar-production.up.railway.app//api=signin/'),
+          'https://pianoappbackendsarkar-production.up.railway.app/api=signin/'),
       body: jsonEncode({
         "username": email,
         "email": email,
@@ -46,7 +46,7 @@ class DjangoApi {
   static Future<User?> resetPassword(String email, String newPassword) async {
     final response = await post(
       Uri.parse(
-          'https://pianoappbackendsarkar-production.up.railway.app//api=forgot_password/'),
+          'https://pianoappbackendsarkar-production.up.railway.app/api=forgot_password/'),
       body: jsonEncode({
         "email": email,
         "new_password": newPassword,
@@ -60,14 +60,14 @@ class DjangoApi {
 
   static Future<String?> signout() async {
     final response = await get(Uri.parse(
-        'https://pianoappbackendsarkar-production.up.railway.app//api=signout/'));
+        'https://pianoappbackendsarkar-production.up.railway.app/api=signout/'));
     if (response.statusCode >= 400) return null;
     return 'Successful';
   }
 
   static Future<List<Map<String, dynamic>?>?> getFeedbacks(int postId) async {
     final response = await get(Uri.parse(
-        'https://pianoappbackendsarkar-production.up.railway.app//api=feedback/'));
+        'https://pianoappbackendsarkar-production.up.railway.app/api=feedback/'));
     if (response.statusCode == 401) return null;
     final List<Map<String, dynamic>?>? result =
         json.decode(response.body)['results'];
@@ -98,7 +98,7 @@ class DjangoApi {
       String userId, String issues, String description) async {
     final response = await post(
       Uri.parse(
-          'https://pianoappbackendsarkar-production.up.railway.app//api=feedback/'),
+          'https://pianoappbackendsarkar-production.up.railway.app/api=feedback/'),
       body: jsonEncode({
         "username": userId,
         "issues": issues,
@@ -112,7 +112,7 @@ class DjangoApi {
 
   static Future<List?> getNotifications() async {
     final response = await get(Uri.parse(
-        'https://pianoappbackendsarkar-production.up.railway.app//api=notifications/get/'));
+        'https://pianoappbackendsarkar-production.up.railway.app/api=notifications/get/'));
     if (response.statusCode == 401) return null;
     final List? result = json.decode(response.body);
     return result;
@@ -144,7 +144,7 @@ class DjangoApi {
       {required String artist, required String songName}) async {
     await post(
         Uri.parse(
-            'https://pianoappbackendsarkar-production.up.railway.app//api=request_music/'),
+            'https://pianoappbackendsarkar-production.up.railway.app/api=request_music/'),
         body: jsonEncode({'artist': artist, 'song_name': songName}));
   }
 
