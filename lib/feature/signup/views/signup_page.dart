@@ -158,12 +158,15 @@ class SignupPage extends HookWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 15, 20),
-                    child: const Text(
-                      'Click here to learn about Terms and condition',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: () => showLicensePage(context: context),
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 15, 20),
+                      child: const Text(
+                        'Click here to view licenses',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 5),
