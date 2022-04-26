@@ -32,7 +32,7 @@ class LoginPage extends HookWidget {
             Container(
               padding: const EdgeInsets.only(left: 80, top: 150),
               child: const Text(
-                'Lyrics and Chords',
+                'Piano Plus',
                 style: TextStyle(
                     color: Colors.white, fontSize: 26, fontWeight: FontWeight.w700),
               ),

@@ -27,7 +27,7 @@ class ArtistSong extends StatelessWidget {
           actions: const <Widget>[
             Padding(
               padding: EdgeInsets.fromLTRB(0, 30, 80, 0),
-              child: Text("Lyrics and chords",
+              child: Text("Piano Plus",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,

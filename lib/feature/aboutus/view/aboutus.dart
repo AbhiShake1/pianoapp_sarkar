@@ -68,7 +68,7 @@ class _ContactState extends State<Contact> {
             companyColor: Colors.white,
             dividerThickness: 2,
             phoneNumber: '+917818044300',
-            githubUserName: 'Lyrics and Chords',
+            githubUserName: 'Piano Plus',
             tagLine: 'Flutter Developer',
             taglineColor: Colors.teal.shade100,
             twitterHandle: 'SubinaChuni',

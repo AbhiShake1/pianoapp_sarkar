@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
             Container(
               padding: const EdgeInsets.only(left: 80, top: 200),
               child: const Text(
-                'Lyrics and Chords',
+                'Piano Plus',
                 style: TextStyle(
                     color: Colors.white, fontSize: 30, fontWeight: FontWeight.w200),
               ),
